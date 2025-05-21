@@ -29,9 +29,6 @@ Originally implemented in Java and ported to a web version using HTML, CSS, and 
 
 ---
 
-### Screenshot
-
-![Student Grade Tracker UI](screenshot.png)
 
 
 
