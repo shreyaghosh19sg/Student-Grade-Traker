@@ -20,7 +20,7 @@ A simple web application for tracking and analyzing student grades.
 ## How to Run
 
 1. Clone the repository or download the files.
-2. Open `index.html` in any modern web browser.
+2. Open `Studenttraker.html` in any modern web browser.
 3. Use the interface to add and analyze grades.
 
 ## Author
@@ -38,8 +38,4 @@ Originally implemented in Java and ported to a web version using HTML, CSS, and 
 ![App Screenshot]
 
 https://drive.google.com/file/d/1749uPDosV1RIAuUOYb_aRj22zpgSVi1t/view?usp=sharing
-## Support
 
-For support, email fake@fake.com or join our Slack channel.
-
-#
