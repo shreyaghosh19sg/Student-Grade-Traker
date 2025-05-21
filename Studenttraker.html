@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Grade Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 70%;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    ul {
+      padding-left: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Grade Tracker</h1>
+    <input type="number" id="gradeInput" placeholder="Enter grade (0-100)" />
+    <br />
+    <button onclick="addGrade()">Add Grade</button>
+    <button onclick="displayGrades()">View Grades</button>
+    <button onclick="showStatistics()">Show Statistics</button>
+    <button onclick="clearGrades()">Clear Grades</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    let grades = [];
+
+    function addGrade() {
+      const gradeInput = document.getElementById("gradeInput");
+      const grade = parseFloat(gradeInput.value);
+      if (isNaN(grade) || grade < 0 || grade > 100) {
+        alert("Please enter a valid grade between 0 and 100.");
+      } else {
+        grades.push(grade);
+        alert("Grade added successfully.");
+        gradeInput.value = "";
+      }
+    }
+
+    function displayGrades() {
+      const output = document.getElementById("output");
+      if (grades.length === 0) {
+        output.innerHTML = "<p>No grades entered yet.</p>";
+        return;
+      }
+      let html = "<h3>Grades Entered:</h3><ul>";
+      grades.forEach((grade, index) => {
+        html += `<li>Student ${index + 1}: ${grade.toFixed(2)}</li>`;
+      });
+      html += "</ul>";
+      output.innerHTML = html;
+    }
+
+    function showStatistics() {
+      const output = document.getElementById("output");
+      if (grades.length === 0) {
+        output.innerHTML = "<p>No grades to show statistics.</p>";
+        return;
+      }
+
+      const sum = grades.reduce((a, b) => a + b, 0);
+      const avg = sum / grades.length;
+      const max = Math.max(...grades);
+      const min = Math.min(...grades);
+
+      output.innerHTML = `
+        <h3>Statistics:</h3>
+        <p>Average Grade: ${avg.toFixed(2)}</p>
+        <p>Highest Grade: ${max.toFixed(2)}</p>
+        <p>Lowest Grade: ${min.toFixed(2)}</p>
+      `;
+    }
+
+    function clearGrades() {
+      grades = [];
+      document.getElementById("output").innerHTML = "<p>All grades cleared.</p>";
+    }
+  </script>
+</body>
+</html>

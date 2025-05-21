@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Grade Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Student Grade Tracker</h1>
+    <input type="number" id="gradeInput" placeholder="Enter grade (0-100)" />
+    <br />
+    <button onclick="addGrade()">Add Grade</button>
+    <button onclick="displayGrades()">View Grades</button>
+    <button onclick="showStatistics()">Show Statistics</button>
+    <button onclick="clearGrades()">Clear Grades</button>
+
+    <div id="output"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
